@@ -10,7 +10,7 @@ import Lightbox from "./Lightbox";
 export default function CaseStudyShell({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div className={className}>
-      <Navbar />
+      <Navbar progress />
       <main>{children}</main>
       <Footer />
       <ScrollToTop />
