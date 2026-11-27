@@ -22,7 +22,10 @@ export default function Certificates() {
                 <h3 className="max-w-[320px] font-display text-[24px] font-bold lg:w-[320px] 3xl:w-[380px] 3xl:max-w-[380px] 3xl:text-[28px]">
                   {cert.title}
                 </h3>
-                <p className="text-[20px] tracking-[-0.8px] text-ink-soft 3xl:text-[22px]">{cert.issuer}</p>
+                {/* Fixed-width box (98px in Figma) so issuers share a left edge across rows */}
+                <p className="text-[20px] tracking-[-0.8px] text-ink-soft lg:w-[5em] lg:shrink-0 lg:whitespace-nowrap 3xl:text-[22px]">
+                  {cert.issuer}
+                </p>
                 <p className="text-[20px] tracking-[-0.8px] text-ink-soft lg:w-[243px] lg:shrink-0 3xl:w-[270px] 3xl:text-[22px]">
                   {cert.date}
                 </p>

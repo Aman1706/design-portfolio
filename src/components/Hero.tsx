@@ -40,7 +40,7 @@ export default function Hero() {
         {/* Description: tagline first on mobile, location left / tagline right on desktop */}
         <div className="flex flex-col gap-5 lg:flex-row-reverse lg:items-start lg:justify-between lg:gap-10">
           <p
-            className="text-[20px] leading-[normal] lg:max-w-[675px] lg:text-[36px] 2xl:max-w-[770px] 2xl:text-[40px] 3xl:max-w-[860px] 3xl:text-[44px]"
+            className="max-w-[560px] text-[20px] leading-[normal] lg:max-w-[675px] lg:text-[36px] 2xl:max-w-[770px] 2xl:text-[40px] 3xl:max-w-[860px] 3xl:text-[44px]"
             data-animate="hero-text"
           >
             {hero.tagline.before}

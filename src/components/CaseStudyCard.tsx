@@ -54,7 +54,8 @@ export default function CaseStudyCard({ study, layout = "stacked" }: Props) {
         </div>
         <Link
           href={study.href}
-          className="group self-start text-[20px] leading-[normal] font-semibold transition-colors hover:text-accent lg:text-[16px]"
+          // py-1/-my-1: a ≥24px hit area without moving the text
+          className="group -my-1 self-start py-1 text-[20px] leading-[normal] font-semibold transition-colors hover:text-accent lg:text-[16px] 2xl:text-[18px] 3xl:text-[20px]"
           aria-label={`View case study: ${study.title}`}
         >
           View case study{" "}
