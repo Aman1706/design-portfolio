@@ -33,6 +33,7 @@ export default function ScrollToTop() {
       type="button"
       onClick={scrollToTop}
       aria-label="Scroll to top"
+      data-cursor-tone="light"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
       className={`fixed right-4 bottom-4 z-30 flex size-12 items-center justify-center rounded-full bg-surface text-ink shadow-lg transition-all duration-300 ease-out hover:bg-accent-alt hover:text-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-alt motion-reduce:transition-none md:right-10 md:bottom-10 lg:size-14 ${

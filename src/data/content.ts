@@ -39,8 +39,8 @@ export const footerPages = [
 
 export const externalLinks = [
   { label: "Resume", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/aman-n1/" },
+  { label: "GitHub", href: "https://github.com/Aman1706" },
 ];
 
 export type Skill = { title: string; tags: string; description: string };

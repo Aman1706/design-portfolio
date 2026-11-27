@@ -20,6 +20,7 @@ export default function CaseStudyCard({ study, layout = "stacked" }: Props) {
         href={study.href}
         tabIndex={-1}
         aria-hidden="true"
+        data-cursor="view"
         className={`group/image relative block aspect-[547/433] w-full overflow-hidden bg-divider ${
           featured ? "lg:w-[48.84%] lg:shrink-0" : ""
         }`}

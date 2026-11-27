@@ -4,7 +4,7 @@ import Container from "./Container";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-ink text-surface" data-animate="footer">
+    <footer id="contact" className="bg-ink text-surface" data-animate="footer" data-cursor-tone="light">
       <Container className="flex flex-col gap-10 py-5 lg:py-10 2xl:gap-12 2xl:py-14">
         {/* Email CTA */}
         <div className="flex flex-col gap-[18px]">

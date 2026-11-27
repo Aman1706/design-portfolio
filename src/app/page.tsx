@@ -1,5 +1,6 @@
 import CaseStudies from "@/components/CaseStudies";
 import Certificates from "@/components/Certificates";
+import CursorDot from "@/components/CursorDot";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -21,6 +22,7 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollToTop />
+      <CursorDot />
       <PageAnimations />
     </div>
   );

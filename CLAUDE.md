@@ -30,6 +30,7 @@ Single-page portfolio for Aman Nayak, built from Figma with Next.js 16 (App Rout
 - **Pre-animation hidden state:** the inline script in `layout.tsx` adds `.js` to `<html>`. `globals.css` hides animation targets only under `.js` + motion allowed, with a 4s fallback that reveals them. A new animated target needs its `data-animate` value added to that list, and must be revealed with `autoAlpha` via `fromTo`.
 - **Masked reveals** use an `overflow-hidden` wrapper around a `data-animate="mask-inner"` span. The hero masks have extra padding for descenders; the `h1` is `flex-col` so their negative margins don't collapse.
 - Navbar is plain `sticky` — no hide-on-scroll (tried and removed).
+- **Cursor dot** (`src/components/CursorDot.tsx`): red dot trailing the native cursor; opens into a ring over links/buttons, "View" badge over `data-cursor="view"` (case-study images). Cream inside `data-cursor-tone="light"` (footer, scroll-to-top button) — add it to any new dark/red area. Fine pointers + motion allowed only. It's the one continuous motion besides the status-dot ping — it reacts to input, never loops.
 - Scroll-to-top button appears when the footer (`#contact`) is in view.
 - No dark mode: the site always uses the Figma palette.
 
