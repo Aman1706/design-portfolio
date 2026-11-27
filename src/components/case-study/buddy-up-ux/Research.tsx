@@ -51,7 +51,8 @@ export default function Research() {
                       </div>
                       <div className="h-2.5 overflow-hidden rounded-full bg-pill-border" aria-hidden="true">
                         <div
-                          className={`h-full rounded-full ${BAR_FILL[chart.color]}`}
+                          className={`h-full origin-left rounded-full ${BAR_FILL[chart.color]}`}
+                          data-animate="stat-bar"
                           style={{ width: `${(row.count / q.total) * 100}%` }}
                         />
                       </div>

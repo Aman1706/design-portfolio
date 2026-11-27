@@ -44,7 +44,27 @@ export default function Hero() {
             data-animate="hero-text"
           >
             {hero.tagline.before}
-            <span className="text-accent">{hero.tagline.highlight}</span>
+            {/* Forced line break, only switched on by the swap when "design" would wrap but "build" wouldn't */}
+            <span className="hidden" data-animate="tagline-break" />
+            {/* Both words share one grid cell. The old word is hidden (and aria-hidden) unless
+                PageAnimations plays the swap, which sizes the cell to whichever word is showing. */}
+            <span className="inline-grid" data-animate="tagline-word">
+              <span className="col-start-1 row-start-1 justify-self-start text-accent" data-animate="tagline-new">
+                {hero.tagline.highlight}
+              </span>
+              <span
+                aria-hidden="true"
+                // justify-self-start: hug the word so the strike (and the measured width) fit it
+                className="invisible relative col-start-1 row-start-1 justify-self-start"
+                data-animate="tagline-old"
+              >
+                {hero.tagline.replaces}
+                <span
+                  className="absolute inset-x-0 top-[55%] h-[0.07em] origin-left scale-x-0 bg-accent"
+                  data-animate="tagline-strike"
+                />
+              </span>
+            </span>
             {hero.tagline.after}
           </p>
           <p

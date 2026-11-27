@@ -14,9 +14,13 @@ export const site = {
 };
 
 export const hero = {
-  /** Rendered as: before + <accent>highlight</accent> + after */
+  /**
+   * Rendered as: before + <accent>highlight</accent> + after. On load, `replaces` shows first, gets
+   * struck through and swaps to `highlight` (engineer → designer); without motion only `highlight` shows.
+   */
   tagline: {
     before: "Six years as a frontend engineer taught me what survives real code. Now I ",
+    replaces: "build",
     highlight: "design",
     after: " for it.",
   },

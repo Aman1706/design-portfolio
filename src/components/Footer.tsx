@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { externalLinks, footerPages, site } from "@/data/content";
 import Container from "./Container";
+import CopyEmail from "./CopyEmail";
 
 export default function Footer() {
   return (
@@ -18,12 +19,15 @@ export default function Footer() {
               </span>
             </span>
           </h2>
-          <a
-            href={`mailto:${site.email}`}
-            className="link-underline self-start text-[20px] leading-[normal] font-medium transition-colors hover:text-accent-alt lg:text-[24px]"
-          >
-            {site.email}
-          </a>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <a
+              href={`mailto:${site.email}`}
+              className="link-underline text-[20px] leading-[normal] font-medium transition-colors hover:text-accent-alt lg:text-[24px]"
+            >
+              {site.email}
+            </a>
+            <CopyEmail email={site.email} />
+          </div>
         </div>
 
         {/* Details */}

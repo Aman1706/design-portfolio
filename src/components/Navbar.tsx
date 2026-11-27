@@ -6,7 +6,8 @@ import { navLinks, site } from "@/data/content";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 
-export default function Navbar() {
+/** `progress` adds a reading-progress line along the bottom border (case studies; driven by CaseStudyAnimations). */
+export default function Navbar({ progress = false }: { progress?: boolean }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -18,8 +19,15 @@ export default function Navbar() {
         <nav
           aria-label="Primary"
           data-animate="nav"
-          className="flex items-center justify-between border-b border-divider py-3 md:py-6"
+          className="relative flex items-center justify-between border-b border-divider py-3 md:py-6"
         >
+          {progress && (
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-0 -bottom-px h-0.5 origin-left scale-x-0 bg-accent"
+              data-animate="progress"
+            />
+          )}
           {/* <Link>, not <a>: next lint requires it for a literal "/" href (see CLAUDE.md → Links) */}
           <Link href="/#top" className="text-[20px] leading-[normal] font-semibold md:text-[24px]">
             {site.name}
