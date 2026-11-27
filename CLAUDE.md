@@ -41,6 +41,7 @@ Single-page portfolio for Aman Nayak, built from Figma with Next.js 16 (App Rout
 - Don't add `scroll-behavior: smooth` to `html`. On a page load to `/#section`, Chromium animates the jump to the section, and ScrollTrigger's first refresh cancels it near the top, so the page shows the hero. In-page links glide via `scrollToHash()` instead.
 - Don't lock scrolling by setting `overflow` on `<html>`/`<body>`. It removes the scrollbar, so the page reflows, and on phones it can toggle the browser toolbar. Either makes content flicker behind overlays. The mobile menu blocks wheel/touch events on the overlay itself instead.
 - If styles look stale or unstyled in dev (e.g. dark background, no accent colours), the dev server has cached old CSS: stop it, `rm -rf .next`, then `npm run dev`.
+- Replacing an image in `public/` keeps the same URL, so `next/image` keeps serving the old optimized copy. In dev that cache is `.next/dev/cache/images` (not `.next/cache/images`); delete it, or all of `.next`.
 
 ## Checks
 `npm run lint` and `npm run build` must pass.
