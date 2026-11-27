@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getLenis } from "@/lib/smooth-scroll";
+import { scrollToHash } from "@/lib/smooth-scroll";
 
 /** Floating "back to top" button that appears once the footer (#contact) scrolls into view. */
 export default function ScrollToTop() {
@@ -18,20 +18,10 @@ export default function ScrollToTop() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToTop = () => {
-    const lenis = getLenis();
-    if (lenis) {
-      lenis.scrollTo(0, { duration: 1.4 });
-      return;
-    }
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-  };
-
   return (
     <button
       type="button"
-      onClick={scrollToTop}
+      onClick={() => scrollToHash("#top")}
       aria-label="Scroll to top"
       data-cursor-tone="cream"
       aria-hidden={!visible}

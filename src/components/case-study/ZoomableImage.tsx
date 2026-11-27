@@ -8,9 +8,9 @@ import type { CaseImage } from "@/data/case-studies/types";
  * An exported Figma diagram that fits its column and opens full-size in a lightbox on click/tap.
  *
  * The lightbox is a native modal <dialog> (focus trap, Esc to close, page made inert). It scrolls
- * itself — `data-lenis-prevent` keeps Lenis from scrolling the page behind it — so the page's
- * `overflow` is never touched (see CLAUDE.md). Images are exported at 2x, so `width / 2` is the
- * design size: the lightbox shows at least that (wider than a phone, so it pans), up to 2x.
+ * itself, so the page's `overflow` is never touched (see CLAUDE.md). Images are exported at 2x, so
+ * `width / 2` is the design size: the lightbox shows at least that (wider than a phone, so it pans),
+ * up to 2x.
  * `fit` is for tall, narrow images (wireframes): shown whole, scaled to the viewport height.
  */
 export default function ZoomableImage({
@@ -52,7 +52,6 @@ export default function ZoomableImage({
       <dialog
         ref={dialog}
         aria-label={image.alt}
-        data-lenis-prevent
         data-cursor-tone="light"
         // Click on the dark backdrop area (not the image) closes it
         onClick={(e) => e.target === e.currentTarget.firstElementChild && dialog.current?.close()}

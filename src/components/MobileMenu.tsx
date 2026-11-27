@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { navLinks, site } from "@/data/content";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { getLenis } from "@/lib/smooth-scroll";
+import { scrollToHash } from "@/lib/smooth-scroll";
 
 export default function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,7 +11,7 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
   // Scroll lock without touching `overflow`: changing overflow on <html>/<body> removes the
   // scrollbar (page reflows ~15px) and can toggle mobile browser toolbars — both made the page
   // behind the fading overlay flicker. The overlay covers the whole viewport, so swallowing
-  // wheel/touch gestures on it is enough. stopPropagation keeps Lenis (listening on window) out.
+  // wheel/touch gestures on it is enough.
   useEffect(() => {
     const el = ref.current;
     if (!open || !el) return;
@@ -36,11 +36,7 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
     const url = new URL(href, window.location.href);
     if (url.pathname !== window.location.pathname || !url.hash) return;
     e.preventDefault();
-    requestAnimationFrame(() => {
-      const lenis = getLenis();
-      if (lenis) lenis.scrollTo(url.hash);
-      else document.querySelector(url.hash)?.scrollIntoView();
-    });
+    requestAnimationFrame(() => scrollToHash(url.hash));
   };
 
   // Stay mounted after `open` turns false so the close animation can play, then unmount.
