@@ -1,5 +1,6 @@
 /**
  * All site copy and links live here. Replace the "#" placeholders with real URLs.
+ * Section links are written as "/#id" so they also work from the case-study pages.
  */
 
 export const site = {
@@ -23,18 +24,18 @@ export const hero = {
 };
 
 export const navLinks = [
-  { label: "Skills", href: "#skills" },
-  { label: "Tools", href: "#tools" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Certificates", href: "#certificates" },
-  { label: "Contact", href: "#contact" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Tools", href: "/#tools" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Certificates", href: "/#certificates" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const footerPages = [
-  { label: "Skills", href: "#skills" },
-  { label: "Tools", href: "#tools" },
-  { label: "Case studies", href: "#case-studies" },
-  { label: "Certificates", href: "#certificates" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Tools", href: "/#tools" },
+  { label: "Case studies", href: "/#case-studies" },
+  { label: "Certificates", href: "/#certificates" },
 ];
 
 export const externalLinks = [
@@ -102,7 +103,7 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
       "Researched why teens and young adults drop learning goals, cut the app to three features, then tested it with real users.",
     image: "/images/case-ux.png",
     imageAlt: "Buddy Up user flow diagram next to a phone mockup",
-    href: "#",
+    href: "/case-studies/buddy-up",
   },
   platforms: [
     {
@@ -112,7 +113,7 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
         "Built to Apple's HIG: dashboards became points and streaks, and extra features were cut so the app stays light.",
       image: "/images/case-ios.png",
       imageAlt: "Buddy Up iOS app screens",
-      href: "#",
+      href: "/case-studies/buddy-up-ios",
     },
     {
       eyebrow: "UI case study · Android",
@@ -121,7 +122,7 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
         "The same app on Android: a two-colour purple palette, Noto Sans, and native parts like the FAB and snackbars.",
       image: "/images/case-android.png",
       imageAlt: "Buddy Up Android app screens with the AI buddy mascot",
-      href: "#",
+      href: "/case-studies/buddy-up-android",
     },
   ],
 };

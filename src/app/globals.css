@@ -66,10 +66,23 @@
       transition: none;
     }
   }
+
+  /* Case-study image lightbox (ZoomableImage): a quick fade in */
+  @media (prefers-reduced-motion: no-preference) {
+    .zoom-dialog[open] {
+      animation: zoom-dialog-in 200ms ease-out;
+    }
+  }
+}
+
+@keyframes zoom-dialog-in {
+  from {
+    opacity: 0;
+  }
 }
 
 /*
- * Pre-animation hidden state for GSAP targets (see src/components/PageAnimations.tsx).
+ * Pre-animation hidden state for GSAP targets (see PageAnimations.tsx / CaseStudyAnimations.tsx).
  * Only applies when JS is running (.js on <html>) and motion is allowed, so no-JS and
  * reduced-motion users always see the content. The delayed fallback animation guarantees
  * nothing stays hidden if the animation script fails to load.
@@ -85,7 +98,8 @@
       [data-animate="certificate"],
       [data-animate="divider"],
       [data-animate="tool"],
-      [data-animate="case-study"]
+      [data-animate="case-study"],
+      [data-animate="reveal"]
     ) {
     visibility: hidden;
     animation: js-reveal-fallback 0s linear 4s forwards;

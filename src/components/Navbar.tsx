@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { navLinks, site } from "@/data/content";
 import Container from "./Container";
@@ -10,15 +11,19 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-surface pt-[15px] md:pt-0" data-animate="nav">
+    // The header's background stays solid while its contents fade in (data-animate="nav" is on <nav>):
+    // when the page loads scrolled (back button, /#section links) a fading header would let the
+    // content underneath show through.
+    <header className="sticky top-0 z-40 bg-surface pt-[15px] md:pt-0">
       <Container>
         <nav
           aria-label="Primary"
+          data-animate="nav"
           className="flex items-center justify-between border-b border-divider py-3 md:py-6"
         >
-          <a href="#top" className="text-[20px] leading-[normal] font-semibold md:text-[24px]">
+          <Link href="/#top" className="text-[20px] leading-[normal] font-semibold md:text-[24px]">
             {site.name}
-          </a>
+          </Link>
 
           <ul className="hidden items-center gap-6 text-[18px] leading-[normal] font-medium md:flex">
             {navLinks.map((link) => (

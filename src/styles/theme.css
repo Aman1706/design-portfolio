@@ -17,6 +17,24 @@
   --color-white: #ffffff;
   --color-pill-border: #3a352f;
 
+  /* Buddy Up case studies (Figma file "Buddy Up Case Studies") */
+  --color-buddy: #2e81f6;
+  --color-buddy-soft: #e3eefe;
+  --color-buddy-tint: #eef4fe;
+  --color-lavender: #b9b8f7;
+  --color-card-dark: #221f1c;
+  --color-on-dark-soft: #c9c4bc;
+  --color-buddy-wash: #eaf3ff; /* iOS Primary/100 */
+  --color-buddy-light: #5ea1ff; /* iOS plan-panel gradient */
+  --color-buddy-deep: #1c69d4;
+  --color-droid: #6c4cf5; /* Android Primary/500 */
+  --color-droid-light: #9077ff; /* Android plan-panel gradient */
+  --color-droid-deep: #4126b1;
+  --color-droid-soft: #f1edff; /* Android panels */
+  --color-droid-band: #ece6ff;
+  --color-droid-wash: #fbfaff; /* Android section background */
+  --color-droid-ink: #4f4866; /* Android step labels */
+
   /* Extra breakpoint for large monitors (Tailwind's 2xl = 1536px is the step before it) */
   --breakpoint-3xl: 120rem; /* 1920px */
 }
