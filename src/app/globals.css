@@ -58,7 +58,7 @@
     }
   }
 
-  /* Case-study image lightbox (ZoomableImage): a quick fade in */
+  /* Case-study image lightbox (case-study/Lightbox.tsx): a quick fade in */
   @media (prefers-reduced-motion: no-preference) {
     .zoom-dialog[open] {
       animation: zoom-dialog-in 200ms ease-out;

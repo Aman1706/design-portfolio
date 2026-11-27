@@ -4,8 +4,9 @@ import CursorDot from "../CursorDot";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ScrollToTop from "../ScrollToTop";
+import Lightbox from "./Lightbox";
 
-/** Page frame shared by every case study: nav, footer, scroll-to-top, cursor and motion. */
+/** Page frame shared by every case study: nav, footer, scroll-to-top, image lightbox, cursor and motion. */
 export default function CaseStudyShell({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div className={className}>
@@ -13,6 +14,7 @@ export default function CaseStudyShell({ children, className }: { children: Reac
       <main>{children}</main>
       <Footer />
       <ScrollToTop />
+      <Lightbox />
       <CursorDot />
       <CaseStudyAnimations />
     </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { navLinks, site } from "@/data/content";
@@ -21,6 +20,7 @@ export default function Navbar() {
           data-animate="nav"
           className="flex items-center justify-between border-b border-divider py-3 md:py-6"
         >
+          {/* <Link>, not <a>: next lint requires it for a literal "/" href (see CLAUDE.md → Links) */}
           <Link href="/#top" className="text-[20px] leading-[normal] font-semibold md:text-[24px]">
             {site.name}
           </Link>
@@ -43,7 +43,15 @@ export default function Navbar() {
             aria-controls="mobile-menu"
             onClick={() => setOpen(true)}
           >
-            <Image src="/icons/hamburger.svg" alt="" width={31.0461} height={31.0461} priority />
+            {/* Inline (not next/image): no extra request, and it's only shown below md */}
+            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" aria-hidden="true" className="block">
+              <path
+                d="M5.2 9.05h20.7M5.2 15.5h20.7M5.2 22h20.7"
+                stroke="currentColor"
+                strokeWidth="1.94"
+                strokeLinecap="round"
+              />
+            </svg>
           </button>
         </nav>
       </Container>

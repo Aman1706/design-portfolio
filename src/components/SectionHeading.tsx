@@ -5,13 +5,7 @@ import type { ReactNode } from "react";
  * Wrap the accent word in <Accent>. The inner span sits in a clipping mask for the
  * slide-up reveal in PageAnimations.
  */
-export default function SectionHeading({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export default function SectionHeading({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <h2
       className={`font-display text-[48px] leading-[normal] font-bold text-ink lg:text-[64px] 2xl:text-[72px] 3xl:text-[80px] ${className}`}

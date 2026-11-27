@@ -1,23 +1,11 @@
 import { usability } from "@/data/case-studies/buddy-up-ux";
+import BulletList from "../BulletList";
 import CaseSection from "../CaseSection";
 import SectionIntro from "../SectionIntro";
-
-const card = "rounded-[24px] border border-surface/8 bg-card-dark";
-const smallCaps = "text-[12px] leading-[normal] font-medium tracking-[0.08em] uppercase";
+import { darkCard, smallCaps } from "../styles";
 
 function Bullets({ items, dot }: { items: string[]; dot: string }) {
-  return (
-    <ul className="flex flex-col gap-2.5 text-[15px]">
-      {items.map((item) => (
-        <li key={item} className="flex gap-2.5">
-          <span className={dot} aria-hidden="true">
-            •
-          </span>
-          <span className="leading-[1.45] text-on-dark-soft">{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
+  return <BulletList items={items} dot={dot} className="gap-2.5 text-[15px]" textClassName="leading-[1.45]" />;
 }
 
 /** 14 — tasks, per-participant feedback, and what we learned. */
@@ -29,6 +17,15 @@ export default function Usability() {
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:gap-16">
         <div className="lg:flex-1">
           <SectionIntro tone="dark" label={usability.label} title={usability.title} intro={usability.intro} />
+          <a
+            href={usability.prototype.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline mt-6 inline-block text-[18px] transition-colors hover:text-accent-alt"
+            data-animate="reveal"
+          >
+            {usability.prototype.label} <span className="text-accent-alt">↗</span>
+          </a>
         </div>
         <dl className="flex gap-8 leading-[normal] lg:gap-10" data-animate="reveal">
           {usability.stats.map((stat) => (
@@ -65,7 +62,7 @@ export default function Usability() {
         </h3>
         <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {usability.participants.map((p) => (
-            <li key={p.name} className={`${card} flex flex-col gap-6 p-6 lg:p-7`} data-animate="reveal">
+            <li key={p.name} className={`${darkCard} flex flex-col gap-6 p-6 lg:p-7`} data-animate="reveal">
               <div className="flex items-center gap-3.5">
                 <span
                   className="flex size-12 shrink-0 items-center justify-center rounded-full bg-buddy font-display text-[20px] font-bold"
@@ -83,11 +80,11 @@ export default function Usability() {
                 {p.completed}
               </p>
               <div className="flex flex-col gap-2.5">
-                <h5 className={`${smallCaps} text-active`}>What went well</h5>
+                <h5 className={`${smallCaps} text-[12px] text-active`}>What went well</h5>
                 <Bullets items={p.well} dot="text-active" />
               </div>
               <div className="flex flex-col gap-2.5">
-                <h5 className={`${smallCaps} text-accent-alt`}>Suggestions</h5>
+                <h5 className={`${smallCaps} text-[12px] text-accent-alt`}>Suggestions</h5>
                 {p.suggestions.length > 0 ? (
                   <Bullets items={p.suggestions} dot="text-accent-alt" />
                 ) : (

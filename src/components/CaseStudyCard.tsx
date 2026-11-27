@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { CaseStudy } from "@/data/content";
 
 type Props = {
@@ -16,7 +17,7 @@ export default function CaseStudyCard({ study, layout = "stacked" }: Props) {
       data-animate="case-study"
     >
       {/* Image also links to the case study; hidden from AT/tab order to avoid a duplicate link */}
-      <a
+      <Link
         href={study.href}
         tabIndex={-1}
         aria-hidden="true"
@@ -31,11 +32,15 @@ export default function CaseStudyCard({ study, layout = "stacked" }: Props) {
             src={study.image}
             alt={study.imageAlt}
             fill
-            sizes={featured ? "(min-width: 1920px) 742px, (min-width: 1024px) 625px, 100vw" : "(min-width: 1024px) 50vw, 100vw"}
+            sizes={
+              featured
+                ? "(min-width: 1920px) 742px, (min-width: 1024px) 625px, 100vw"
+                : "(min-width: 1024px) 50vw, 100vw"
+            }
             className="object-cover transition-transform duration-500 ease-out group-hover/image:scale-[1.03] motion-reduce:transition-none"
           />
         </div>
-      </a>
+      </Link>
 
       <div className={`flex flex-col gap-5 lg:gap-[30px] ${featured ? "lg:flex-1" : ""}`}>
         <div className="flex flex-col gap-2">
@@ -47,14 +52,14 @@ export default function CaseStudyCard({ study, layout = "stacked" }: Props) {
             {study.description}
           </p>
         </div>
-        <a
+        <Link
           href={study.href}
           className="group self-start text-[20px] leading-[normal] font-semibold transition-colors hover:text-accent lg:text-[16px]"
           aria-label={`View case study: ${study.title}`}
         >
           View case study{" "}
           <span className="inline-block text-accent transition-transform group-hover:translate-x-1">→</span>
-        </a>
+        </Link>
       </div>
     </article>
   );

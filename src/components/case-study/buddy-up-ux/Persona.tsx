@@ -1,22 +1,8 @@
 import Image from "next/image";
 import { empathy, persona } from "@/data/case-studies/buddy-up-ux";
+import BulletList from "../BulletList";
 import CaseSection from "../CaseSection";
 import SectionIntro, { SectionText, SectionTitle } from "../SectionIntro";
-
-function BulletList({ items }: { items: string[] }) {
-  return (
-    <ul className="flex flex-col gap-3.5 text-[16px]">
-      {items.map((item) => (
-        <li key={item} className="flex gap-2.5">
-          <span className="text-ink-soft-alt" aria-hidden="true">
-            •
-          </span>
-          <span className="leading-[1.4] text-on-dark-soft">{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 /** 07 — the persona (Abhinav) and his empathy map. */
 export default function Persona() {

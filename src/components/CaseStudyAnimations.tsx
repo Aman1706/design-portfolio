@@ -1,5 +1,6 @@
 "use client";
 
+import { fadeInNav, revealMaskedHeadings, sel } from "@/lib/animations";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 /**
@@ -7,30 +8,16 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
  * run-once fade-up for every `data-animate="reveal"` block. Hidden states live in globals.css;
  * nothing runs under reduced motion.
  */
-const sel = (name: string) => `[data-animate="${name}"]`;
-
 export default function CaseStudyAnimations() {
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       // ── Nav fades in on load (the header image fades up with the other reveals) ──
-      gsap.fromTo(sel("nav"), { y: -10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, clearProps: "transform" });
+      fadeInNav();
 
       // ── Section titles: slide up from behind their mask ──
-      gsap.utils.toArray<HTMLElement>(sel("heading")).forEach((heading) => {
-        gsap.fromTo(
-          heading.querySelectorAll(sel("mask-inner")),
-          { yPercent: 110, autoAlpha: 1 },
-          {
-            yPercent: 0,
-            duration: 0.9,
-            stagger: 0.1,
-            ease: "power4.out",
-            scrollTrigger: { trigger: heading, start: "top 85%", once: true },
-          },
-        );
-      });
+      revealMaskedHeadings();
 
       // ── Everything else: fade up as it enters, staggered when several enter together ──
       // Hide every block up front, not when it enters: otherwise the CSS 4s fallback has already
@@ -43,9 +30,10 @@ export default function CaseStudyAnimations() {
         onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, overwrite: true }),
       });
 
-      // Fonts and lazy images can shift layout; recalc trigger positions once they're in
+      // Fonts swapping in can shift layout; recalc trigger positions once they're ready.
+      // (ScrollTrigger already refreshes on window load, and images reserve their size via
+      // width/height, so no load listener is needed — it would never fire after client navigation.)
       document.fonts?.ready.then(() => ScrollTrigger.refresh());
-      window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
     });
 
     return () => mm.revert();

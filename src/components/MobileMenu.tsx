@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import { navLinks, site } from "@/data/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { scrollToHash } from "@/lib/smooth-scroll";
@@ -31,7 +31,7 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
   }, [open, onClose]);
 
   // Links are "/#id". On the home page, scroll there; elsewhere (case studies) let the link navigate.
-  const goTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const goTo = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     onClose();
     const url = new URL(href, window.location.href);
     if (url.pathname !== window.location.pathname || !url.hash) return;
