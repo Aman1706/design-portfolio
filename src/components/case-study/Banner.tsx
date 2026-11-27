@@ -21,7 +21,7 @@ export default function Banner({ banner }: { banner: CaseBanner }) {
           alt={banner.image.alt}
           width={banner.image.width}
           height={banner.image.height}
-          priority
+          preload
           sizes="100vw"
           className="h-auto w-full"
         />

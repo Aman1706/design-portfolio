@@ -3,10 +3,10 @@ import CaseSection from "../CaseSection";
 import SectionIntro, { SectionTitle, SectionText } from "../SectionIntro";
 import StatRing from "../StatRing";
 import ZoomableImage from "../ZoomableImage";
+import { darkCard } from "../styles";
 import { DIAGRAM_SIZES } from "./DiagramSection";
 
 const BAR_FILL = { "accent-alt": "bg-accent-alt", buddy: "bg-buddy", lavender: "bg-lavender" } as const;
-const card = "rounded-[24px] border border-surface/8 bg-card-dark";
 
 /** 06 — survey results (rings, bar charts, findings, wish list) and the interview findings. */
 export default function Research() {
@@ -23,7 +23,7 @@ export default function Research() {
             {q.rings.map((ring) => (
               <li
                 key={ring.label}
-                className={`${card} flex flex-col items-center gap-5 px-6 py-8 text-center`}
+                className={`${darkCard} flex flex-col items-center gap-5 px-6 py-8 text-center`}
                 data-animate="reveal"
               >
                 <StatRing value={ring.value} color={ring.color} />
@@ -34,7 +34,11 @@ export default function Research() {
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
             {q.charts.map((chart) => (
-              <div key={chart.title} className={`${card} flex flex-col gap-[18px] p-6 lg:p-8`} data-animate="reveal">
+              <div
+                key={chart.title}
+                className={`${darkCard} flex flex-col gap-[18px] p-6 lg:p-8`}
+                data-animate="reveal"
+              >
                 <h3 className="text-[18px] leading-[normal] font-semibold">{chart.title}</h3>
                 <ul className="flex flex-col gap-[18px]">
                   {chart.rows.map((row) => (
@@ -60,7 +64,7 @@ export default function Research() {
 
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-5">
             {q.findings.map((f) => (
-              <li key={f.value} className={`${card} flex flex-col gap-2 p-7`} data-animate="reveal">
+              <li key={f.value} className={`${darkCard} flex flex-col gap-2 p-7`} data-animate="reveal">
                 <p className="font-display text-[32px] leading-[normal] font-bold lg:text-[36px]">{f.value}</p>
                 <p className="text-[15px] leading-[1.4] text-ink-soft-alt">{f.label}</p>
               </li>
@@ -98,7 +102,7 @@ export default function Research() {
 
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-6">
             {qualitative.insights.map((insight) => (
-              <li key={insight.title} className={`${card} flex flex-col gap-3 p-6 lg:p-8`} data-animate="reveal">
+              <li key={insight.title} className={`${darkCard} flex flex-col gap-3 p-6 lg:p-8`} data-animate="reveal">
                 <p className="text-[12px] leading-[normal] font-medium tracking-[0.08em] text-accent-alt uppercase">
                   {insight.kicker}
                 </p>

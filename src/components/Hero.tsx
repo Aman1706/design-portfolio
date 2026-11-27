@@ -30,7 +30,7 @@ export default function Hero() {
             alt={`Portrait of ${site.name}`}
             width={306}
             height={306}
-            priority
+            preload
             sizes="(min-width: 1920px) 306px, (min-width: 1536px) 266px, (min-width: 1024px) 226px, 186px"
             className="size-[186px] shrink-0 object-cover lg:size-[clamp(186px,17.66vw,226px)] 2xl:size-[266px] 3xl:size-[306px]"
             data-animate="hero-avatar"
@@ -39,7 +39,8 @@ export default function Hero() {
 
         {/* Description: tagline first on mobile, location left / tagline right on desktop */}
         <div className="flex flex-col gap-5 lg:flex-row-reverse lg:items-start lg:justify-between lg:gap-10">
-          <p className="text-[20px] leading-[normal] lg:max-w-[675px] lg:text-[36px] 2xl:max-w-[770px] 2xl:text-[40px] 3xl:max-w-[860px] 3xl:text-[44px]"
+          <p
+            className="text-[20px] leading-[normal] lg:max-w-[675px] lg:text-[36px] 2xl:max-w-[770px] 2xl:text-[40px] 3xl:max-w-[860px] 3xl:text-[44px]"
             data-animate="hero-text"
           >
             {hero.tagline.before}

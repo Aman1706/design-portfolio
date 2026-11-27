@@ -360,5 +360,21 @@ export const ios: PlatformCaseStudy = {
         },
       ],
     },
+    {
+      label: "06 | Prototype",
+      title: "Try it yourself",
+      intro:
+        "The Figma designs and prototype, rebuilt as a working coded prototype with Claude. Sign up, set up a plan, finish a daily goal, chat with Bud and browse Community, all with the same tokens and components.",
+      tone: "ios-wash",
+      titleFont: "sans",
+      blocks: [
+        {
+          kind: "prototype",
+          src: "/prototypes/buddy-up-ios/index.html",
+          title: "Buddy Up iOS coded prototype",
+          cta: "Open the prototype",
+        },
+      ],
+    },
   ],
 };

@@ -4,8 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Aman Nayak — Product Designer",
-  description:
-    "Product designer in Bangalore. Six years of frontend engineering, now designing what I used to build.",
+  description: "Product designer in Bangalore. Six years of frontend engineering, now designing what I used to build.",
 };
 
 export const viewport: Viewport = {

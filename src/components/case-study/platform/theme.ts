@@ -9,6 +9,8 @@ export const PLATFORM_THEME = {
     planText: "text-buddy-wash",
     badge: "bg-buddy",
     badgeOnPanel: "text-buddy",
+    /** Step labels on light sections (the iOS study has no steps yet). */
+    stepText: "text-ink-soft",
   },
   android: {
     solidPanel: "bg-droid",
@@ -17,6 +19,8 @@ export const PLATFORM_THEME = {
     planText: "text-droid-soft",
     badge: "bg-droid",
     badgeOnPanel: "text-droid",
+    /** Step labels on light sections. */
+    stepText: "text-droid-ink",
   },
 } as const satisfies Record<PlatformCaseStudy["platform"], Record<string, string>>;
 

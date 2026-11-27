@@ -27,7 +27,7 @@ function Group({ group, inverted, theme }: { group: ScreenGroup; inverted: boole
                   >
                     {screen.step.n}
                   </span>
-                  <span className={inverted ? "text-surface/80" : "text-droid-ink"}>{screen.step.label}</span>
+                  <span className={inverted ? "text-surface/80" : theme.stepText}>{screen.step.label}</span>
                 </p>
               )}
               <ZoomableImage

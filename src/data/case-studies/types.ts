@@ -44,6 +44,8 @@ export type Block =
   | { kind: "screens"; rows: ScreenRow[] }
   /** The gradient "Here's your plan" panel with Bud and the generated-plan phone. */
   | { kind: "plan"; step?: { n: string; label: string }; title: string; body: string; phone: CaseImage }
+  /** A live coded prototype: embedded on desktop, with a link to open it full screen. */
+  | { kind: "prototype"; src: string; title: string; cta: string }
   | { kind: "divider" };
 
 export type PlatformSection = {

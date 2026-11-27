@@ -1,5 +1,6 @@
 "use client";
 
+import { fadeInNav, REVEAL_START, revealMaskedHeadings, sel } from "@/lib/animations";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { initAnchorScroll } from "@/lib/smooth-scroll";
 
@@ -8,9 +9,6 @@ import { initAnchorScroll } from "@/lib/smooth-scroll";
  * Targets the `data-animate` attributes in the (server-rendered) section components.
  * Initial hidden states live in globals.css; everything here is skipped for reduced motion.
  */
-const sel = (name: string) => `[data-animate="${name}"]`;
-const REVEAL_START = "top 85%";
-
 export default function PageAnimations() {
   useGSAP(() => {
     // Not motion-gated: it falls back to an instant jump under reduced motion
@@ -18,11 +16,10 @@ export default function PageAnimations() {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-
       // ── Hero: load sequence ───────────────────────────────────────────
       gsap
         .timeline()
-        .fromTo(sel("nav"), { y: -10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, clearProps: "transform" })
+        .add(fadeInNav())
         .fromTo(
           `${sel("hero-title")} ${sel("mask-inner")}`,
           // Start well below: the hero masks have extra bottom padding for descenders
@@ -46,18 +43,7 @@ export default function PageAnimations() {
       }
 
       // ── Section headings: slide up from behind a mask ─────────────────
-      gsap.utils.toArray<HTMLElement>(sel("heading")).forEach((heading) => {
-        gsap.fromTo(
-          heading.querySelector(sel("mask-inner")),
-          { yPercent: 110, autoAlpha: 1 },
-          {
-            yPercent: 0,
-            duration: 0.9,
-            ease: "power4.out",
-            scrollTrigger: { trigger: heading, start: REVEAL_START, once: true },
-          },
-        );
-      });
+      revealMaskedHeadings();
 
       // ── Skill + certificate rows: fade up, dividers draw left → right ─
       gsap.utils.toArray<HTMLElement>(sel("list")).forEach((list) => {

@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { uiChanges } from "@/data/case-studies/buddy-up-ux";
 import CaseSection from "../CaseSection";
 import SectionIntro from "../SectionIntro";
+import { darkCard } from "../styles";
 
 /** 13 — what was cut or moved between the flows and the UI. A table on md+, cards below. */
 export default function UiChanges() {
@@ -10,7 +12,7 @@ export default function UiChanges() {
     <CaseSection tone="dark" label="What changed in the UI phase">
       <SectionIntro tone="dark" label={uiChanges.label} title={uiChanges.title} intro={uiChanges.intro} />
 
-      <div className="rounded-[24px] border border-surface/8 bg-card-dark px-5 py-2 md:px-8" data-animate="reveal">
+      <div className={`${darkCard} px-5 py-2 md:px-8`} data-animate="reveal">
         <table className="w-full border-collapse text-left text-[15px] max-md:block">
           <thead className="max-md:sr-only">
             <tr className="text-[12px] tracking-[0.08em] text-ink-soft-alt uppercase">
@@ -49,13 +51,13 @@ export default function UiChanges() {
         <span className="size-2.5 shrink-0 rounded-full bg-buddy" aria-hidden="true" />
         <span>
           {uiChanges.note.before}
-          <a href={uiChanges.note.ios.href} className="link-underline font-semibold text-buddy">
+          <Link href={uiChanges.note.ios.href} className="link-underline font-semibold text-buddy">
             {uiChanges.note.ios.label}
-          </a>{" "}
+          </Link>{" "}
           and{" "}
-          <a href={uiChanges.note.android.href} className="link-underline font-semibold text-buddy">
+          <Link href={uiChanges.note.android.href} className="link-underline font-semibold text-buddy">
             {uiChanges.note.android.label}
-          </a>
+          </Link>
           {uiChanges.note.after}
         </span>
       </p>

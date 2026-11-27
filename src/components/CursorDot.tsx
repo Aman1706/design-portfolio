@@ -83,9 +83,16 @@ export default function CursorDot() {
         yTo(e.clientY);
       };
 
+      const onLeave = () => {
+        shown = false;
+        gsap.to(el, { autoAlpha: 0, duration: 0.2 });
+      };
+
       const onOver = (e: PointerEvent) => {
         const target = e.target as Element | null;
         if (!target?.closest) return;
+        // Pointer events stop at an iframe (the embedded prototype), so hide rather than freeze at its edge.
+        if (target.tagName === "IFRAME") return onLeave();
         update(
           target.closest("[data-cursor='view']")
             ? "view"
@@ -94,11 +101,6 @@ export default function CursorDot() {
               : "default",
           (target.closest("[data-cursor-tone]")?.getAttribute("data-cursor-tone") as Tone | null) ?? "dark",
         );
-      };
-
-      const onLeave = () => {
-        shown = false;
-        gsap.to(el, { autoAlpha: 0, duration: 0.2 });
       };
 
       window.addEventListener("pointermove", onMove, { passive: true });

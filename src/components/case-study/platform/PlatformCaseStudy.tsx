@@ -66,6 +66,27 @@ function BlockView({ block, dark, theme }: { block: Block; dark: boolean; theme:
     case "plan":
       return <PlanPanel plan={block} theme={theme} />;
 
+    case "prototype":
+      return (
+        <div className="flex flex-col gap-6" data-animate="reveal">
+          {/* Embedded on desktop only; on phones the prototype runs full-bleed in its own tab. */}
+          <iframe
+            src={block.src}
+            title={block.title}
+            loading="lazy"
+            className="hidden h-[820px] w-full rounded-[24px] border border-divider bg-white lg:block 2xl:h-[900px]"
+          />
+          <a
+            href={block.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 self-start rounded-full bg-buddy px-6 py-3 text-[16px] font-semibold text-white transition-colors hover:bg-buddy-deep"
+          >
+            {block.cta} <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      );
+
     case "divider":
       return <hr className={dark ? "border-divider-alt" : "border-divider"} />;
   }
