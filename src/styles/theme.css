@@ -1,0 +1,28 @@
+/*
+ * Design tokens — sourced from the Figma file "Website Portfolio Final"
+ * (Color page + Typeface page). Each token generates Tailwind utilities,
+ * e.g. --color-accent → bg-accent / text-accent / border-accent.
+ */
+@theme {
+  /* Colours */
+  --color-surface: #f5f3ef;
+  --color-ink: #141210;
+  --color-accent: #aa0a00;
+  --color-accent-alt: #f04438;
+  --color-ink-soft: #6b6660;
+  --color-ink-soft-alt: #9c968d;
+  --color-divider: #e4e0d9;
+  --color-divider-alt: #2a2622;
+  --color-active: #3fb950;
+  --color-white: #ffffff;
+  --color-pill-border: #3a352f;
+
+  /* Extra breakpoint for large monitors (Tailwind's 2xl = 1536px is the step before it) */
+  --breakpoint-3xl: 120rem; /* 1920px */
+}
+
+@theme inline {
+  /* Typefaces (CSS variables are set by next/font in src/fonts/index.ts) */
+  --font-display: var(--font-oswald), "Oswald", "Arial Narrow", sans-serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+}
