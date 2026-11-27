@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { dmSans, oswald } from "@/fonts";
-import "lenis/dist/lenis.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

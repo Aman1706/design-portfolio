@@ -2,8 +2,10 @@
 @import "../styles/theme.css";
 
 @layer base {
+  /* No `scroll-behavior: smooth`: Chromium would animate the fragment scroll on page load
+     (/#section links), which ScrollTrigger's first refresh then cancels near the top. In-page
+     links glide via src/lib/smooth-scroll.ts instead. */
   html {
-    scroll-behavior: smooth;
     /* Keep anchor targets clear of the sticky navbar (71px mobile, 80px desktop) */
     scroll-padding-top: 95px;
   }
@@ -14,11 +16,6 @@
     }
   }
 
-  /* Lenis handles smoothing itself; CSS smooth scrolling would fight it */
-  html.lenis {
-    scroll-behavior: auto;
-  }
-
   body {
     background-color: var(--color-surface);
     color: var(--color-ink);
@@ -27,12 +24,6 @@
     font-variation-settings: "opsz" 14;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
   }
 }
 

@@ -1,10 +1,10 @@
 "use client";
 
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
-import { initSmoothScroll } from "@/lib/smooth-scroll";
+import { initAnchorScroll } from "@/lib/smooth-scroll";
 
 /**
- * All page-level motion: smooth scrolling, the hero load + scroll-out, and run-once scroll reveals.
+ * All page-level motion: gliding in-page links, the hero load + scroll-out, and run-once scroll reveals.
  * Targets the `data-animate` attributes in the (server-rendered) section components.
  * Initial hidden states live in globals.css; everything here is skipped for reduced motion.
  */
@@ -13,10 +13,11 @@ const REVEAL_START = "top 85%";
 
 export default function PageAnimations() {
   useGSAP(() => {
+    // Not motion-gated: it falls back to an instant jump under reduced motion
+    const stopAnchorScroll = initAnchorScroll();
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const stopSmoothScroll = initSmoothScroll();
 
       // ── Hero: load sequence ───────────────────────────────────────────
       gsap
@@ -113,11 +114,12 @@ export default function PageAnimations() {
 
       // Fonts swapping in can shift layout; recalc trigger positions once they're ready
       document.fonts?.ready.then(() => ScrollTrigger.refresh());
-
-      return stopSmoothScroll;
     });
 
-    return () => mm.revert();
+    return () => {
+      mm.revert();
+      stopAnchorScroll();
+    };
   });
 
   return null;

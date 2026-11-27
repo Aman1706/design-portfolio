@@ -1,10 +1,9 @@
 "use client";
 
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
-import { initSmoothScroll } from "@/lib/smooth-scroll";
 
 /**
- * Motion for the case-study pages: smooth scrolling, the hero load, masked section titles and a
+ * Motion for the case-study pages: the hero load, masked section titles and a
  * run-once fade-up for every `data-animate="reveal"` block. Hidden states live in globals.css;
  * nothing runs under reduced motion.
  */
@@ -15,8 +14,6 @@ export default function CaseStudyAnimations() {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const stopSmoothScroll = initSmoothScroll();
-
       // ── Nav fades in on load (the header image fades up with the other reveals) ──
       gsap.fromTo(sel("nav"), { y: -10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, clearProps: "transform" });
 
@@ -49,8 +46,6 @@ export default function CaseStudyAnimations() {
       // Fonts and lazy images can shift layout; recalc trigger positions once they're in
       document.fonts?.ready.then(() => ScrollTrigger.refresh());
       window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
-
-      return stopSmoothScroll;
     });
 
     return () => mm.revert();

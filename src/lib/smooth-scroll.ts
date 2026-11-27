@@ -1,34 +1,41 @@
 "use client";
 
-import Lenis from "lenis";
-import { gsap, ScrollTrigger } from "./gsap";
+/**
+ * Native scrolling everywhere; only in-page jumps glide. No scroll library: wheel/trackpad
+ * scrolling stays exactly as the OS does it.
+ *
+ * `scroll-padding-top` (globals.css) keeps targets clear of the sticky navbar, so no offsets here.
+ */
+
+const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** Scrolls to `#id` (or the top for `#top` / a missing target), smoothly unless reduced motion. */
+export function scrollToHash(hash: string) {
+  const behavior: ScrollBehavior = prefersReducedMotion() ? "auto" : "smooth";
+  const target = hash && hash !== "#top" ? document.querySelector(hash) : null;
+  if (target) target.scrollIntoView({ behavior });
+  else window.scrollTo({ top: 0, behavior });
+}
 
 /**
- * Lenis smooth (wheel) scrolling, driven by GSAP's ticker so ScrollTrigger stays in sync.
- * Native scrolling is kept underneath, so position: sticky and anchors still work.
- * Touch devices keep native scrolling (Lenis default).
+ * Makes same-page hash links (e.g. "/#skills" on the home page) glide instead of jumping.
+ * Links to another page are left alone. Returns a cleanup function.
  */
-let lenis: Lenis | null = null;
+export function initAnchorScroll() {
+  const onClick = (e: MouseEvent) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const link = (e.target as Element | null)?.closest?.("a[href]");
+    if (!(link instanceof HTMLAnchorElement) || (link.target && link.target !== "_self")) return;
 
-/** The active Lenis instance, or null (reduced motion / not yet mounted). */
-export const getLenis = () => lenis;
+    const url = new URL(link.href);
+    if (!url.hash || url.origin !== location.origin || url.pathname !== location.pathname) return;
 
-/** Starts smooth scrolling. Returns a cleanup function. */
-export function initSmoothScroll() {
-  // Anchor links: Lenis already honours `scroll-padding-top` (globals.css), which keeps
-  // targets clear of the sticky navbar — so no extra offset here.
-  const instance = new Lenis({ lerp: 0.1, anchors: true });
-  lenis = instance;
-
-  instance.on("scroll", ScrollTrigger.update);
-  const tick = (time: number) => instance.raf(time * 1000);
-  gsap.ticker.add(tick);
-  gsap.ticker.lagSmoothing(0);
-
-  return () => {
-    gsap.ticker.remove(tick);
-    gsap.ticker.lagSmoothing(500, 33);
-    instance.destroy();
-    if (lenis === instance) lenis = null;
+    // Capture phase + preventDefault also stops next/link from handling it
+    e.preventDefault();
+    if (url.hash !== location.hash) history.pushState(null, "", url.hash);
+    scrollToHash(url.hash);
   };
+
+  document.addEventListener("click", onClick, { capture: true });
+  return () => document.removeEventListener("click", onClick, { capture: true });
 }
