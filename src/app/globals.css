@@ -25,6 +25,31 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* One keyboard focus ring site-wide: accent on light, bright red on dark areas.
+     Components that set their own focus-visible:outline-* utilities override this. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+
+  [data-cursor-tone="light"] :focus-visible {
+    outline-color: var(--color-accent-alt);
+  }
+
+  /* Case-study image focus ring (ZoomableImage) follows the study's accent. Android uses the
+     lighter purple on dark sections: --color-droid is only ~3.1:1 on the dark cards. */
+  :root {
+    --zoom-ring: var(--color-buddy);
+  }
+
+  [data-platform="android"] {
+    --zoom-ring: var(--color-droid);
+  }
+
+  [data-platform="android"] [data-cursor-tone="light"] {
+    --zoom-ring: var(--color-droid-light);
+  }
 }
 
 @layer components {

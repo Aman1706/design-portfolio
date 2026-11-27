@@ -31,7 +31,7 @@ export default function ZoomableImage({
       data-zoom-width={image.width}
       data-zoom-height={image.height}
       data-zoom-fit={fit ? "" : undefined}
-      className={`group block w-full cursor-zoom-in rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-buddy ${className}`}
+      className={`group block w-full cursor-zoom-in rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--zoom-ring) ${className}`}
     >
       <Image
         src={image.src}

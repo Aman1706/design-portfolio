@@ -97,7 +97,9 @@ export default function PlatformCaseStudy({ study }: { study: Study }) {
   const theme = PLATFORM_THEME[study.platform];
 
   return (
-    <>
+    // display: contents keeps the layout as if this wrapper weren't there; data-platform sets the
+    // image focus-ring colour (--zoom-ring in globals.css)
+    <div className="contents" data-platform={study.platform}>
       <Banner banner={study.banner} />
       {study.sections.map((section) => {
         const dark = section.tone === "dark";
@@ -116,6 +118,6 @@ export default function PlatformCaseStudy({ study }: { study: Study }) {
           </CaseSection>
         );
       })}
-    </>
+    </div>
   );
 }
