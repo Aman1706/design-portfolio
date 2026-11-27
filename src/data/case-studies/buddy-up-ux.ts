@@ -418,7 +418,8 @@ export const usability = {
   label: "14 | Usability testing",
   title: "Usability Testing",
   intro:
-    "Moderated sessions with three participants on the clickable prototype, following the template: participant info, task list, feedback & suggestions, and conclusion.",
+    "Moderated sessions with three participants on the coded iOS prototype, following the template: participant info, task list, feedback & suggestions, and conclusion.",
+  prototype: { label: "Try the prototype", href: "/prototypes/buddy-up-ios/index.html" },
   stats: [
     { label: "Participants", value: "3" },
     { label: "Tasks", value: "5" },

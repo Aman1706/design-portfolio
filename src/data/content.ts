@@ -9,8 +9,7 @@ export const site = {
   location: "Bangalore, IN",
   email: "aman.nayak@icloud.com",
   status: "Open to product design roles",
-  footerBio:
-    "Product designer in Bangalore. Six years of frontend, now designing what I used to build.",
+  footerBio: "Product designer in Bangalore. Six years of frontend, now designing what I used to build.",
   copyright: "© 2026 Aman Nayak. Designed in Figma, built in Next.js.",
 };
 
@@ -39,7 +38,7 @@ export const footerPages = [
 ];
 
 export const externalLinks = [
-  { label: "Resume", href: "#" },
+  { label: "Resume", href: "/Aman-Nayak-Resume.pdf" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/aman-n1/" },
   { label: "GitHub", href: "https://github.com/Aman1706" },
 ];
@@ -101,8 +100,8 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
     title: "Buddy Up",
     description:
       "Researched why teens and young adults drop learning goals, cut the app to three features, then tested it with real users.",
-    image: "/images/case-ux.png",
-    imageAlt: "Buddy Up user flow diagram next to a phone mockup",
+    image: "/images/case-ux.jpg",
+    imageAlt: "Bud, the Buddy Up mascot, on a desk with books, a wireframe sketch and a sunset window",
     href: "/case-studies/buddy-up",
   },
   platforms: [
