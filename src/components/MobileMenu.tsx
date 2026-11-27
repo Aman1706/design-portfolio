@@ -30,13 +30,16 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
     };
   }, [open, onClose]);
 
+  // Links are "/#id". On the home page, scroll there; elsewhere (case studies) let the link navigate.
   const goTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
     onClose();
+    const url = new URL(href, window.location.href);
+    if (url.pathname !== window.location.pathname || !url.hash) return;
+    e.preventDefault();
     requestAnimationFrame(() => {
       const lenis = getLenis();
-      if (lenis) lenis.scrollTo(href);
-      else document.querySelector(href)?.scrollIntoView();
+      if (lenis) lenis.scrollTo(url.hash);
+      else document.querySelector(url.hash)?.scrollIntoView();
     });
   };
 

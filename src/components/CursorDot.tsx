@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 type CursorState = "default" | "link" | "view";
-type Tone = "dark" | "light";
+type Tone = "dark" | "light" | "cream";
 
 /** `fill` true = solid dot; false = outlined ring with a transparent centre. */
 const STATES: Record<CursorState, { size: number; fill: boolean }> = {
@@ -13,16 +13,23 @@ const STATES: Record<CursorState, { size: number; fill: boolean }> = {
   view: { size: 80, fill: true },
 };
 
-/** Colour token per tone: red on the light page, cream over dark/red areas (`data-cursor-tone="light"`). */
+/**
+ * Colour token per tone, picked by the nearest `data-cursor-tone` ancestor:
+ * deep red on the light page (default), bright red over dark areas ("light"),
+ * cream over red areas ("cream"). The "View" label is cream, so tones must stay non-cream
+ * wherever `data-cursor="view"` can appear.
+ */
 const TONE_TOKENS: Record<Tone, string> = {
   dark: "--color-accent",
-  light: "--color-surface",
+  light: "--color-accent-alt",
+  cream: "--color-surface",
 };
 
 /**
  * Red dot that trails the native cursor (which stays visible). Over links/buttons it opens into
  * a ring; over elements marked `data-cursor="view"` it becomes a "View" badge. Inside elements
- * marked `data-cursor-tone="light"` it turns cream so it stays visible on dark or red backgrounds.
+ * marked `data-cursor-tone="light"` (dark backgrounds) it uses the brighter red; inside
+ * `data-cursor-tone="cream"` (red backgrounds) it turns cream.
  * Only active on fine pointers with hover and when motion is allowed; otherwise never shown.
  */
 export default function CursorDot() {
@@ -39,7 +46,7 @@ export default function CursorDot() {
         const [r, g, b] = gsap.utils.splitColor(rootStyle.getPropertyValue(TONE_TOKENS[tone]).trim());
         return `${r}, ${g}, ${b}`;
       };
-      const colors: Record<Tone, string> = { dark: rgb("dark"), light: rgb("light") };
+      const colors: Record<Tone, string> = { dark: rgb("dark"), light: rgb("light"), cream: rgb("cream") };
 
       let state: CursorState = "default";
       let tone: Tone = "dark";
@@ -85,7 +92,7 @@ export default function CursorDot() {
             : target.closest("a, button, [role='button']")
               ? "link"
               : "default",
-          target.closest("[data-cursor-tone='light']") ? "light" : "dark",
+          (target.closest("[data-cursor-tone]")?.getAttribute("data-cursor-tone") as Tone | null) ?? "dark",
         );
       };
 
