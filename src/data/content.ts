@@ -104,7 +104,7 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
     title: "Buddy Up",
     description:
       "Researched why teens and young adults drop learning goals, cut the app to three features, then tested it with real users.",
-    image: "/images/case-ux.jpg",
+    image: "/images/case-ux.webp",
     imageAlt: "Bud, the Buddy Up mascot, on a desk with books, a wireframe sketch and a sunset window",
     href: "/case-studies/buddy-up",
   },
@@ -114,7 +114,7 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
       title: "Buddy Up for iOS",
       description:
         "Built to Apple's HIG: dashboards became points and streaks, and extra features were cut so the app stays light.",
-      image: "/images/case-ios.png",
+      image: "/images/case-ios.webp",
       imageAlt: "Buddy Up iOS app screens",
       href: "/case-studies/buddy-up-ios",
     },
@@ -123,7 +123,7 @@ export const caseStudies: { featured: CaseStudy; platforms: CaseStudy[] } = {
       title: "Buddy Up for Android",
       description:
         "The same app on Android: a two-colour purple palette, Noto Sans, and native parts like the FAB and snackbars.",
-      image: "/images/case-android.png",
+      image: "/images/case-android.webp",
       imageAlt: "Buddy Up Android app screens with the AI buddy mascot",
       href: "/case-studies/buddy-up-android",
     },
