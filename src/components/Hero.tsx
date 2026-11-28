@@ -26,7 +26,7 @@ export default function Hero() {
             </span>
           </h1>
           <Image
-            src="/images/avatar.png"
+            src="/images/avatar.webp"
             alt={`Portrait of ${site.name}`}
             width={306}
             height={306}

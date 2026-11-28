@@ -25,7 +25,7 @@ export const hero: CaseBanner = {
   tags: "UX Research · Information Architecture · Usability Testing",
   tagline: "Never learn alone.",
   image: img(
-    "banner.jpg",
+    "banner.webp",
     2560,
     1682,
     "Buddy Up wordmark beside an illustration of Bud, the blue mascot, sitting on a desk with books, a notebook and a mug at sunset",
@@ -35,7 +35,7 @@ export const hero: CaseBanner = {
 export const problem = {
   label: "01 | Problem statement",
   title: ["They want to learn.", "They just don’t stick with it."],
-  image: img("problem.jpg", 2000, 1333, "A teenage boy looking frustrated while studying on a sofa"),
+  image: img("problem.webp", 2000, 1333, "A teenage boy looking frustrated while studying on a sofa"),
   overlay: {
     title: "Motivated",
     accent: "≠ consistent.",
@@ -75,7 +75,7 @@ export const process = {
   title: "Design Process",
   intro: "Six phases, one loop — every phase fed the next, from what teens told us to the screens they tapped through.",
   image: img(
-    "process.png",
+    "process.webp",
     2176,
     2300,
     "Design process in six phases orbiting Bud: 01 Research & Discover, 02 Define, 03 Information Architecture, 04 Wireframing, 05 Visual Design & Prototype, 06 Usability Testing",
@@ -87,7 +87,7 @@ export const strategy = {
   kicker: "Buddy Up’s",
   title: "5 step product strategy",
   image: img(
-    "strategy.png",
+    "strategy.webp",
     2176,
     1960,
     "Five-step product strategy: why Buddy Up exists, who it's for (13–20 year-olds), where it lives (iOS and Android), what users do, and what success looks like",
@@ -100,7 +100,7 @@ export const competitive = {
   intro:
     "We reviewed 15 learning, habit and community apps. Each nails one piece — a path, a pet, a feed — but none combines a personal plan, a companion and a community for teens.",
   image: img(
-    "competitive.png",
+    "competitive.webp",
     2176,
     1318,
     "Feature comparison of Finch, Duolingo, Khan Academy, Coursera, Udemy, Reddit and Buddy Up. Only Buddy Up has all seven: AI tutor, personalised path, daily goals, gamified rewards, companion, community and progress dashboard",
@@ -179,7 +179,7 @@ export const qualitative = {
   intro:
     "Then we sat down one-on-one with school students (CBSE) and college students in computer science or finance, and affinity-mapped what they told us.",
   image: img(
-    "interviews.png",
+    "interviews.webp",
     2176,
     1520,
     "Interview questions and answers around Bud: most lean on AI agents instead of learning platforms; younger students are happy with teachers while college students self-learn; under-14s mostly play games while 17+ use Instagram and YouTube; nobody keeps a timetable",
@@ -209,7 +209,7 @@ export const persona = {
   intro:
     "Built from our interviews and affinity map — a real-feeling teen we could design for, keep in the room, and check every decision against.",
   name: "Abhinav Sharma",
-  image: img("persona.png", 738, 771, "Abhinav, a smiling teenager in glasses and a yellow shirt, arms crossed"),
+  image: img("persona.webp", 738, 771, "Abhinav, a smiling teenager in glasses and a yellow shirt, arms crossed"),
   quote:
     "“I’m in 10th grade. I’m not sure exactly what I want to be, but I know it’ll be something in tech. In my free time I play cricket, go to cafés with friends, or watch videos and reels.”",
   tags: ["Student", "15", "Male", "Bengaluru", "10th grade"],
@@ -284,7 +284,7 @@ export const journey = {
   title: "From exam stress to sharing the plan",
   intro: "Abhinav’s journey — before he finds Buddy Up, and the moments where the app can change how it feels.",
   image: img(
-    "journey-map.png",
+    "journey-map.webp",
     2176,
     1274,
     "Journey map across five stages — Struggle, Search, Start, Learn, Reflect — with actions, an emotion curve rising from negative to positive, and opportunities for the app at each stage",
@@ -297,7 +297,7 @@ export const cardSort = {
   intro:
     "53 feature cards from our research, sorted into 9 groups. This was our first map of everything Buddy Up could hold.",
   image: img(
-    "card-sort.png",
+    "card-sort.webp",
     2176,
     3052,
     "Card sort of 53 features into nine groups: Onboarding & Account, Profile & Buddy, Learning & Content, Goals Focus & Tracking, Quizzes & Achievements, Community & Social, Help & Assistance, Notifications, App Settings & Legal",
@@ -309,7 +309,7 @@ export const ia = {
   chip: "Information architecture",
   lead: "The card sort, turned into a structure: every feature we had in mind, with a clear place in the app.",
   image: img(
-    "ia.png",
+    "ia.webp",
     2176,
     1792,
     "Information architecture tree with Buddy Up at the root and nine branches, from Onboarding & Account to App Settings & Legal",
@@ -325,7 +325,7 @@ export const flows = {
     chip: "Task flow",
     lead: "12 tasks as we first mapped them, before the UI phase: each one a straight line from first tap to finish, with no branching.",
     image: img(
-      "task-flows.png",
+      "task-flows.webp",
       2176,
       3092,
       "Twelve linear task flows: login, sign up, buddy, personalised plan, daily goals, dashboard, community, create community, create post, edit post, chat with buddy and search",
@@ -335,13 +335,13 @@ export const flows = {
     chip: "User flow",
     lead: "The whole app as one map: every decision from opening Buddy Up to leaving it, and where each path leads.",
     legend: img(
-      "user-flow-legend.png",
+      "user-flow-legend.webp",
       410,
       408,
       "Legend: green pill for start and end, blue box for screen or action, slanted box for input, yellow diamond for decision, green and red dots for yes and no",
     ),
     image: img(
-      "user-flow.png",
+      "user-flow.webp",
       2176,
       3412,
       "User flow from start through registration or login to the home screen, branching into buddy, personalised plan, search, daily goals, community, posts and chat, then to the end",
@@ -351,7 +351,7 @@ export const flows = {
 
 const wf = (name: string, caption: string) => ({
   caption,
-  image: img(`wireframes/${name}.png`, 644, 1399, `Wireframe of the ${caption.toLowerCase()} screen`),
+  image: img(`wireframes/${name}.webp`, 644, 1399, `Wireframe of the ${caption.toLowerCase()} screen`),
 });
 
 export const wireframes = {

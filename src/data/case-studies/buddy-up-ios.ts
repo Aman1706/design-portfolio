@@ -15,9 +15,9 @@ const img = (path: string, width: number, height: number, alt: string): CaseImag
 });
 
 /** Phone screens: 211 × 447 at 1x (states 253 × 536, main row 287 × 608). */
-const phone = (name: string, alt: string): Screen => img(`screens/${name}.png`, 422, 894, `iOS screen: ${alt}`);
-const statePhone = (name: string, alt: string): Screen => img(`screens/${name}.png`, 506, 1073, `iOS screen: ${alt}`);
-const card = (name: string, w: number, h: number, alt: string) => img(`components/${name}.png`, w, h, alt);
+const phone = (name: string, alt: string): Screen => img(`screens/${name}.webp`, 422, 894, `iOS screen: ${alt}`);
+const statePhone = (name: string, alt: string): Screen => img(`screens/${name}.webp`, 506, 1073, `iOS screen: ${alt}`);
+const card = (name: string, w: number, h: number, alt: string) => img(`components/${name}.webp`, w, h, alt);
 
 export const ios: PlatformCaseStudy = {
   platform: "ios",
@@ -28,7 +28,7 @@ export const ios: PlatformCaseStudy = {
   },
   banner: {
     image: img(
-      "banner.png",
+      "banner.webp",
       2560,
       1640,
       "Buddy Up wordmark between two tilted iPhones showing the walkthrough and a chat with Bud",
@@ -52,7 +52,7 @@ export const ios: PlatformCaseStudy = {
           title: "/ Colour",
           body: "Built around one confident blue. It reads as calm and trustworthy when the app asks teens to commit to a plan, and it is bright enough to feel playful next to Bud. Neutrals keep the screens quiet so progress stands out, and the three syntax colours are used only for feedback.",
           image: img(
-            "colour.png",
+            "colour.webp",
             1544,
             1520,
             "Colour palette: Primary 500 brand blue #2E81F6, Primary 700 #0E52B2, Primary 1000 #00204C, Primary 100 and 300, neutrals, and syntax colours for error #D90E0E, warning #D9A60E and success #0FA824, with full primary and neutral tint scales",
@@ -63,7 +63,7 @@ export const ios: PlatformCaseStudy = {
           title: "/ Typography",
           body: "Work Sans for everything. Its wide, open letterforms feel friendly without looking childish, and it stays readable at the small sizes a phone needs. One family in three weights keeps the hierarchy simple, with sizes in three steps (L, M, S) for larger and smaller iPhones.",
           image: img(
-            "typography.png",
+            "typography.webp",
             1544,
             1210,
             "Work Sans in Regular, SemiBold and Bold, with a type scale: Heading H1 24/22/20 Bold, Sub heading H2 20/18/16 SemiBold, Content 16/14/12 Regular, CTA 16/14/12 SemiBold, Label 14/12/10 Regular",
@@ -194,7 +194,7 @@ export const ios: PlatformCaseStudy = {
           title: "Here’s your plan",
           body: "The AI turns the answers into weekly tracks with daily goals. Anything can be changed later from Profile.",
           phone: img(
-            "screens/generated-plan.png",
+            "screens/generated-plan.webp",
             464,
             983,
             "iOS screen: the generated plan with UI/UX Design and Guitar tracks",
@@ -220,17 +220,17 @@ export const ios: PlatformCaseStudy = {
                   title: "Home",
                   body: "Today’s goals, with points and a streak up top. A dashboard felt like homework; this feels like a game. Right: the full scroll, down to This Week.",
                   span: 2,
-                  screens: [img("screens/home.png", 1016, 1216, "iOS Home screen next to its full scroll")],
+                  screens: [img("screens/home.webp", 1016, 1216, "iOS Home screen next to its full scroll")],
                 },
                 {
                   title: "Community",
                   body: "Groups are set by topic, so there are no off-topic spaces. Search lives here and nowhere else.",
-                  screens: [img("screens/community.png", 574, 1216, "iOS screen: Community feed")],
+                  screens: [img("screens/community.webp", 574, 1216, "iOS screen: Community feed")],
                 },
                 {
                   title: "Chat with Bud",
                   body: "Questions about the plan go to Bud, which replaced the help centre and voice assistant.",
-                  screens: [img("screens/chat.png", 574, 1216, "iOS screen: chat with Bud")],
+                  screens: [img("screens/chat.webp", 574, 1216, "iOS screen: chat with Bud")],
                 },
               ],
             },

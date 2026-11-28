@@ -16,16 +16,16 @@ const img = (path: string, width: number, height: number, alt: string): CaseImag
 
 /** Phone screens: 211 × 458 at 1x (states 253 × 549, main rows 251 × 543 and 203 × 440). */
 const phone = (name: string, alt: string, step?: Screen["step"]): Screen => ({
-  ...img(`screens/${name}.png`, 422, 916, `Android screen: ${alt}`),
+  ...img(`screens/${name}.webp`, 422, 916, `Android screen: ${alt}`),
   step,
 });
 const statePhone = (name: string, alt: string): Screen =>
-  img(`screens/${name}.png`, 506, 1098, `Android screen: ${alt}`);
+  img(`screens/${name}.webp`, 506, 1098, `Android screen: ${alt}`);
 const smallPhone = (name: string, alt: string): Screen =>
-  img(`screens/${name}.png`, 406, 880, `Android screen: ${alt}`);
+  img(`screens/${name}.webp`, 406, 880, `Android screen: ${alt}`);
 /** Component cards are 360px wide (720 at 2x); heights differ per row. */
 const cards = (rows: [height: number, items: [name: string, alt: string][]][]) =>
-  rows.flatMap(([height, items]) => items.map(([name, alt]) => img(`components/${name}.png`, 720, height, alt)));
+  rows.flatMap(([height, items]) => items.map(([name, alt]) => img(`components/${name}.webp`, 720, height, alt)));
 
 export const android: PlatformCaseStudy = {
   platform: "android",
@@ -36,7 +36,7 @@ export const android: PlatformCaseStudy = {
   },
   banner: {
     image: img(
-      "banner.png",
+      "banner.webp",
       2560,
       1640,
       "Android phone showing the Buddy Up Home screen, with Bud beside it and a large faded Buddy Up wordmark behind",
@@ -59,20 +59,20 @@ export const android: PlatformCaseStudy = {
           kind: "images",
           images: [
             img(
-              "palette.png",
+              "palette.webp",
               2240,
               1132,
               "Colour palette: Primary #6C4CF5 for actions, progress and selected states; Secondary #AAA0CC for secondary buttons and soft surfaces; Neutral #000000 to #FFFFFF for text, borders and backgrounds; Syntax #0FA824, #D9A60E and #D90E0E for success, warning and error",
             ),
-            img("scales.png", 2240, 738, "Tint scales from 100 to 1000 for primary, secondary and neutral"),
+            img("scales.webp", 2240, 738, "Tint scales from 100 to 1000 for primary, secondary and neutral"),
             img(
-              "typography.png",
+              "typography.webp",
               2240,
               920,
               "Noto Sans in Regular, SemiBold and Bold: Google's own type family, so it sits naturally next to Android's system UI, with sizes in three steps (L, M, S)",
             ),
             img(
-              "type-scale.png",
+              "type-scale.webp",
               2240,
               692,
               "Type scale: Heading H1 24/22/20 Bold, Sub heading H2 20/18/16 SemiBold, Content 16/14/12 Regular, CTA 16/14/12 SemiBold, Label 14/12/10 Regular",
@@ -204,7 +204,7 @@ export const android: PlatformCaseStudy = {
           title: "Here’s your plan",
           body: "The AI turns the answers into weekly tracks with daily goals. Anything can be changed later from Profile.",
           phone: img(
-            "screens/generated-plan.png",
+            "screens/generated-plan.webp",
             476,
             1030,
             "Android screen: the generated plan with UI/UX Design and Guitar tracks",
@@ -230,18 +230,18 @@ export const android: PlatformCaseStudy = {
                 {
                   title: "Community",
                   body: "Groups are set by topic, so there are no off-topic spaces. Search lives here and nowhere else.",
-                  screens: [img("screens/community.png", 501, 1087, "Android screen: Community feed")],
+                  screens: [img("screens/community.webp", 501, 1087, "Android screen: Community feed")],
                 },
                 {
                   title: "Home",
                   body: "Today’s goals, with points and a streak up top. A dashboard felt like homework; this feels like a game. Right: the full scroll, down to This Week.",
                   span: 2,
-                  screens: [img("screens/home.png", 964, 1164, "Android Home screen next to its full scroll")],
+                  screens: [img("screens/home.webp", 964, 1164, "Android Home screen next to its full scroll")],
                 },
                 {
                   title: "Chat with Bud",
                   body: "Questions about the plan go to Bud, which replaced the help centre and voice assistant.",
-                  screens: [img("screens/chat.png", 501, 1087, "Android screen: chat with Bud")],
+                  screens: [img("screens/chat.webp", 501, 1087, "Android screen: chat with Bud")],
                 },
               ],
             },

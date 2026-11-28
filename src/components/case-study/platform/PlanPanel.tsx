@@ -45,10 +45,10 @@ export default function PlanPanel({ plan, theme }: { plan: Plan; theme: Platform
         </div>
 
         <Image
-          src="/images/case-studies/bud.png"
+          src="/images/case-studies/bud.webp"
           alt=""
-          width={1227}
-          height={1282}
+          width={800}
+          height={836}
           sizes="(min-width: 1024px) 300px, 50vw"
           className="relative mx-auto mt-8 w-[55%] max-w-[240px] lg:absolute lg:top-[110px] lg:left-[37.5%] lg:mt-0 lg:w-[26.8%] lg:max-w-none"
         />
