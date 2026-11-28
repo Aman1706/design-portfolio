@@ -47,7 +47,7 @@ Single-page portfolio for Aman Nayak, built from Figma with Next.js 16 (App Rout
 - Replacing an image in `public/` keeps the same URL, so `next/image` keeps serving the old optimized copy. In dev that cache is `.next/dev/cache/images` (not `.next/cache/images`); delete it, or all of `.next`.
 
 ## Deployment
-- Cloudflare Pages via its GitHub integration: pushes to `main` deploy to production, other branches get preview URLs. Build command `npm run build`, output directory `out`. Node version comes from `.node-version`.
+- Cloudflare Workers (static assets only, no Worker script) via its GitHub integration, project `design-portfolio`: pushes to `main` deploy to production. Build command `npm run build`, deploy command `npx wrangler deploy`. `wrangler.jsonc` points the assets at `out/`; its `name` must match the dashboard project. Node version comes from `.node-version`. Don't use the OpenNext adapter (`opennextjs-cloudflare`): it needs a server build, not a static export.
 - The site is a static export (`output: "export"` in `next.config.ts`), so there's no server: no route handlers, server actions, middleware, `cookies()`/`headers()`, or ISR. `images.unoptimized` is on because there's no optimizer, so `next/image` serves the files in `public/` as they are. So every raster image in `public/images` is WebP: convert new exports with `cwebp -q 90 -m 6 -sharp_yuv -metadata none` (`-q 82` for photos), and resize anything that only ever shows small to 2x its largest display size (e.g. the avatar is 612px).
 - `cacheComponents` and `partialPrefetching` were removed because they turn on PPR, which a static export can't use (the build fails with "PPR cannot be enabled in export mode").
 

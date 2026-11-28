@@ -1,0 +1,14 @@
+// Cloudflare Workers config: serves the static export in `out/` (no Worker script).
+// `name` must match the project name in the Cloudflare dashboard.
+{
+  "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
+  "name": "design-portfolio",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    // `/case-studies/buddy-up` serves `case-studies/buddy-up.html`.
+    "html_handling": "auto-trailing-slash",
+    // Unknown paths get Next's 404 page with a 404 status.
+    "not_found_handling": "404-page",
+  },
+}
