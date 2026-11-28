@@ -46,5 +46,10 @@ Single-page portfolio for Aman Nayak, built from Figma with Next.js 16 (App Rout
 - If styles look stale or unstyled in dev (e.g. dark background, no accent colours), the dev server has cached old CSS: stop it, `rm -rf .next`, then `npm run dev`.
 - Replacing an image in `public/` keeps the same URL, so `next/image` keeps serving the old optimized copy. In dev that cache is `.next/dev/cache/images` (not `.next/cache/images`); delete it, or all of `.next`.
 
+## Deployment
+- Cloudflare Pages via its GitHub integration: pushes to `main` deploy to production, other branches get preview URLs. Build command `npm run build`, output directory `out`. Node version comes from `.node-version`.
+- The site is a static export (`output: "export"` in `next.config.ts`), so there's no server: no route handlers, server actions, middleware, `cookies()`/`headers()`, or ISR. `images.unoptimized` is on because there's no optimizer, so `next/image` serves the files in `public/` as they are. Compress large images before adding them.
+- `cacheComponents` and `partialPrefetching` were removed because they turn on PPR, which a static export can't use (the build fails with "PPR cannot be enabled in export mode").
+
 ## Checks
 `npm run lint`, `npm run format:check` and `npm run build` must pass. Prettier (120 columns, `prettier-plugin-tailwindcss` sorts classes) is the formatter: run `npm run format`.
